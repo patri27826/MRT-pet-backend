@@ -23,9 +23,8 @@ COPY --from=builder ${VIRTUAL_ENV} ${VIRTUAL_ENV}
 
 WORKDIR /src
 
-COPY .env ./.env
-COPY ./ ./app
+COPY ./ ./
 
-ENV PYTHONPATH /src/app
+ENV PYTHONPATH /src
 
-CMD ["uvicorn", "app.app:app", "--host", "0.0.0.0", "--port", "8080"]
+CMD ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "8080"]

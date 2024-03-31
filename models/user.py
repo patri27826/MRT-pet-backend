@@ -3,7 +3,7 @@ from fastapi.security import HTTPBasicCredentials
 from pydantic import BaseModel, EmailStr
 
 
-class Admin(Document):
+class User(Document):
     fullname: str
     email: EmailStr
     password: str
@@ -11,31 +11,31 @@ class Admin(Document):
     class Config:
         json_schema_extra = {
             "example": {
-                "fullname": "Abdulazeez Abdulazeez Adeshina",
-                "email": "abdul@youngest.dev",
+                "fullname": "My name",
+                "email": "example@example.com",
                 "password": "3xt3m#",
             }
         }
 
     class Settings:
-        name = "admin"
+        name = "user"
 
 
-class AdminSignIn(HTTPBasicCredentials):
+class UserSignIn(HTTPBasicCredentials):
     class Config:
         json_schema_extra = {
-            "example": {"username": "abdul@youngest.dev", "password": "3xt3m#"}
+            "example": {"username": "example@example.com", "password": "3xt3m#"}
         }
 
 
-class AdminData(BaseModel):
+class UserData(BaseModel):
     fullname: str
     email: EmailStr
 
     class Config:
         json_schema_extra = {
             "example": {
-                "fullname": "Abdulazeez Abdulazeez Adeshina",
-                "email": "abdul@youngest.dev",
+                "fullname": "My name",
+                "email": "example@example.com",
             }
         }

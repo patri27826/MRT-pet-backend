@@ -1,4 +1,4 @@
-# FastAPI and MongoDB
+# MRT-pet backend
 
 ## Usage
 
@@ -6,16 +6,12 @@ To use the application, follow the outlined steps:
 
 Run the Application
 ```console
-$ conda create --name myapp python=3.9
-$ conda activate myapp
-
-$ pip install poetry
-$ poetry install
-
+$ docker compose up --build
+```
+Before Commit
+```
 $ pip install pre-commit
 $ pre-commit install
-
-$ docker compose up --build
 ```
 
 Add the package

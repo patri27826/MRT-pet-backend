@@ -2,8 +2,8 @@ from fastapi import Depends, FastAPI
 
 from auth.jwt_bearer import JWTBearer
 from config.config import initiate_database
-from routes.admin import router as AdminRouter
-from routes.student import router as StudentRouter
+from routes.authorized import router as UserAuthorizedRouter
+from routes.user import router as UserRouter
 
 app = FastAPI()
 
@@ -20,10 +20,5 @@ async def read_root():
     return {"message": "Welcome to this fantastic app!"}
 
 
-app.include_router(AdminRouter, tags=["Administrator"], prefix="/admin")
-app.include_router(
-    StudentRouter,
-    tags=["Students"],
-    prefix="/student",
-    dependencies=[Depends(token_listener)],
-)
+app.include_router(UserRouter, tags=["User"], prefix="/users")
+app.include_router(UserAuthorizedRouter, tags=["User"], prefix="/users")
