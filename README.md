@@ -25,7 +25,8 @@ services:
     volumes:
       - .data/mongodb:/data/db
 ```
-3. Check the Api Documentation via `http://localhost:8080/docs`
+3. Run `$ docker compose up --build` command
+4. Check the Api Documentation via `http://localhost:8080/docs`
 
 
 ### Run the Application under repository
