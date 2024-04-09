@@ -24,7 +24,7 @@ async def user_login(user_credentials: UserSignIn = Body(...)):
     raise HTTPException(status_code=403, detail="Incorrect email or password")
 
 
-@router.post("", response_model=UserData)
+@router.post("/signup", response_model=UserData)
 async def user_signup(user: User = Body(...)):
     user_exists = await User.find_one(User.email == user.email)
     if user_exists:
